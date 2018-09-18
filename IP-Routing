@@ -1,0 +1,35 @@
+the routing table can be updated by:  1. a routing daemon
+                                      2. ICMP redirect message
+                                      3. route command
+                                      4. netstat command
+
+the steps that IP performs when it searches its routing table:
+1. search for a matching host address
+2. search for a matching network address
+3. search for a default entry(the default entry is normally specified in the routing table as a network entry, with a network ID of 0.)
+
+routing policy: is a set of rules that decides which routes go into the routing table.
+routing mechanism: decides which interface to send a packet out when searching the routing table
+netstat -rn   r: list the routing table   n: prints IP addresses in numeric format
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+10.220.214.0    0.0.0.0         255.255.255.0   U         0 0          0 eth0
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eth0
+0.0.0.0         10.220.214.254  0.0.0.0         UG        0 0          0 eth0
+Flags:
+U: the route is up
+G: the route is to a gateway(route). If this flag is not set, the destination is directly connected.
+H: the route is to a host, that is, the destination is a complete host address.
+   If this flag is not set, the route is to a network, 
+   and the destination is a network address:
+   a net ID, or a combination of a net ID and a sunbet ID.
+D: the route was cerated by a redirect
+M: the route was modified by a redirect
+
+
+   
+
+
+
+
+                                      
