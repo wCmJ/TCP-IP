@@ -18,16 +18,39 @@ reliable:
 byte stream service:
     one end doesn't know what size another one writes, and it doesn't care the content
     
-tcp header:
-    normal size is 20 bytes, unless options are present.
-    16-bit source port number                                                       16-bit destination port number
-                                                32-bit sequence number
-                                                32-bit acknowledge number
-    4-bit header 6-bit reserved  6-bit urg/ack/psh/rst/syn/fin                      16-bit window size            
-    16-bit tcp checksum                                                             16-bit urgent pointer
+tcp header:20 bytes + options    
+    16-bit source port number       16-bit destination port number
+    32-bit sequence number
+    32-bit acknowledge number
+    4-bit header length     6-bit reserved  6-bit urg/ack/psh/rst/syn/fin       16-bit window size            
+    16-bit tcp checksum     16-bit urgent pointer
+    options
   
     source port and destination port identify the sending and receiving application.
     
+udp header:8 bytes
+    16-bit sorece port number       16-bit destination port number
+    16-bit udp length               16-bit udp checksum
+
+ip header:20 bytes + options
+    4-bit ip version    4-bit header length     8-bit type of service       16-bit total length(in bytes)
+    16-bit identification       3-bit flags     13-bit fragment offset
+    8-bit time to live      8-bit protocol      16-bit header checksum
+    32-bit sorece ip address
+    32-bit destination ip address
+    options
+
+    tos is composed of a 3-bit precedence field(which is ignored today), 4 TOS bits, and an unused bit that must be 0.
+    4 TOS bits are: minimize delay, maximize throughput, maximize reliablity, and minimize monetary cost.
+
+
+
+
+
+
+
+
+
 
 
 
