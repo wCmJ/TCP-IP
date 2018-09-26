@@ -1,0 +1,33 @@
+tcp: connection-oriented, reliable, byte stream service
+
+connection-oriented:  two applications using TCP must establish a TCP connection with each other before they can exchange data.
+                      Broadcasting and multicasting aren't applicable to TCP.
+                      
+reliable: 
+    sender:
+        data broken
+        a segment with timer
+    receiver:
+        send an acknowledge when receiving data(delay a fraction of a second)
+        correct order
+        discard duplicate data
+        flow control(a finite amount of buffer space)
+    both sender and receiver:
+        checksum(when a segment arrives with invalid checksum, TCP discards it and doesn't acknowledge receiving it. it excepts the sender to time out and retransmit)
+            
+byte stream service:
+    one end doesn't know what size another one writes, and it doesn't care the content
+    
+tcp header:
+    normal size is 20 bytes, unless options are present.
+    16-bit source port number                                                       16-bit destination port number
+                                                32-bit sequence number
+                                                32-bit acknowledge number
+    4-bit header 6-bit reserved  6-bit urg/ack/psh/rst/syn/fin                      16-bit window size            
+    16-bit tcp checksum                                                             16-bit urgent pointer
+  
+    source port and destination port identify the sending and receiving application.
+    
+
+
+
